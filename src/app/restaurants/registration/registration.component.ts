@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validator, Validators} from "@angular/forms";
+import {RegistrationService} from "../../common/service/registration.service";
+import {Users} from "../../common/models/Users";
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +12,7 @@ export class RegistrationComponent implements OnInit {
 
   public registrationForm;
 
-  constructor() { this.registrationForm = new FormBuilder().group({
+  constructor(private registrationService:RegistrationService) { this.registrationForm = new FormBuilder().group({
     lastName:["", Validators.compose([Validators.required])],
     firstName:["", Validators.compose([Validators.required])],
     email:["", Validators.compose([Validators.email, Validators.required])],
@@ -28,6 +30,8 @@ export class RegistrationComponent implements OnInit {
       console.log(this.registrationForm.value);
       if (this.checkPassword()){
         console.log('password identique');
+        const user=this.registrationForm.value as Users;
+       console.log(this.registrationService.getRegistration(user));
       }
     }
   }
@@ -35,4 +39,6 @@ export class RegistrationComponent implements OnInit {
   checkPassword(){
     return this.registrationForm.value.password == this.registrationForm.value.confirmPassword;
   }
+
+
 }
