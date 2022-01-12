@@ -2,11 +2,11 @@
   <mat-card>
     <form [formGroup]="registrationForm">
       <mat-form-field appearance="fill" class="w-100">
-        <mat-label>Nom</mat-label>
+        <mat-label>LastName</mat-label>
         <input matInput formControlName="lastName" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
-        <mat-label>Prénom</mat-label>
+        <mat-label>FirstName</mat-label>
         <input matInput formControlName="firstName" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
@@ -14,19 +14,19 @@
         <input matInput formControlName="email" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
-        <mat-label>Téléphone</mat-label>
+        <mat-label>Phone </mat-label>
         <input matInput formControlName="phone" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
-        <mat-label>Mot de passe</mat-label>
+        <mat-label>Password</mat-label>
         <input matInput formControlName="password" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
-        <mat-label>Confirmation mot de passe</mat-label>
+        <mat-label>Password confirmation</mat-label>
         <input matInput formControlName="confirmPassword" />
       </mat-form-field>
       <button type="submit" mat-flat-button color="primary" class="btn-send" (click)="submit()">
-        Envoyer
+        Send
       </button>
     </form>
   </mat-card>

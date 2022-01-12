@@ -26,12 +26,14 @@ export class RegistrationComponent implements OnInit {
 
   submit() {
 
-    if (this.registrationForm.valid){
-      console.log(this.registrationForm.value);
-      if (this.checkPassword()){
-        console.log('password identique');
+    if (this.registrationForm.valid && this.checkPassword()) {
+      try{
+        delete this.registrationForm.value.confirmPassword;
         const user=this.registrationForm.value as Users;
-       console.log(this.registrationService.getRegistration(user));
+        console.log(this.registrationService.getRegistration(user));
+      }
+      catch (error){
+        console.log(error);
       }
     }
   }
@@ -39,6 +41,8 @@ export class RegistrationComponent implements OnInit {
   checkPassword(){
     return this.registrationForm.value.password == this.registrationForm.value.confirmPassword;
   }
+
+
 
 
 }
