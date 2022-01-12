@@ -1,31 +1,31 @@
 <div class="container">
   <mat-card>
-    <form action="" method="post">
+    <form [formGroup]="registrationForm">
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>Nom</mat-label>
-        <input matInput />
+        <input matInput formControlName="lastName" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>Prénom</mat-label>
-        <input matInput />
+        <input matInput formControlName="firstName" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>Email</mat-label>
-        <input matInput />
+        <input matInput formControlName="email" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>Téléphone</mat-label>
-        <input matInput />
+        <input matInput formControlName="phone" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>Mot de passe</mat-label>
-        <input matInput />
+        <input matInput formControlName="password" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>Confirmation mot de passe</mat-label>
-        <input matInput />
+        <input matInput formControlName="confirmPassword" />
       </mat-form-field>
-      <button type="submit" mat-flat-button color="primary" class="btn-send">
+      <button type="submit" mat-flat-button color="primary" class="btn-send" (click)="submit()">
         Envoyer
       </button>
     </form>
