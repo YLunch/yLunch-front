@@ -11,16 +11,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './registration/form/form.component';
 
 @NgModule({
-  declarations: [RegistrationComponent, FormComponent],
-  imports: [
-    CommonModule,
-    RestaurantsRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
-    MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    declarations: [RegistrationComponent, FormComponent],
+    imports: [
+        CommonModule,
+        RestaurantsRoutingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCardModule,
+        MatButtonModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    exports: [
+        FormComponent
+    ]
 })
 export class RestaurantsModule {}
