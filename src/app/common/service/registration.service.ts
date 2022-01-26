@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Users} from "../models/Users";
+import {User} from "../models/User";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 
@@ -10,15 +10,21 @@ export class RegistrationService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getRegistration(value:any) {
-    //const response=this.httpClient.post<Users>(environment.url+"",value);
-    let user:Users={link: "ab",
+  async getRegistration(value:User) {
+    const response= await this.httpClient.post<User>(environment.url+"/restaurant-admins",value).toPromise();
+    console.log(response);
+/*
+    let user:User={link: "ab",
       id: "ab",
       email: "ab",
       firstName : "ab",
       lastName : "ab",
-      phoneNumber : "ab"};
-    
+      phoneNumber : "ab",
+      roles :["test"]
+    };
+
       return user;
+*/
+
   }
 }

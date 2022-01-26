@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {Component, Input, OnInit, Output} from '@angular/core';
+import {FormBuilder, Validator, Validators} from "@angular/forms";
+import {User} from "../../../common/models/User";
+import {RegistrationService} from "../../../common/service/registration.service";
 
 @Component({
   selector: 'app-form',
@@ -7,23 +9,16 @@ import {FormBuilder, Validators} from "@angular/forms";
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  public registrationForm;
+  @Input() registrationForm: any;
+  @Input() submitRegistation: any;
 
-  constructor() {
-    this.registrationForm = new FormBuilder().group({
-      lastName:["", Validators.compose([Validators.required])],
-      firstName:["", Validators.compose([Validators.required])],
-      email:["", Validators.compose([Validators.email, Validators.required])],
-      phone:["", Validators.compose([Validators.required, Validators.pattern('^0[0-9]([0-9]{2}){4}$')])],
-      password:["", Validators.compose([Validators.required])],
-      confirmPassword:["", Validators.compose([Validators.required])]
-    })
-  }
+  constructor(private registrationService:RegistrationService) { }
 
   ngOnInit(): void {
   }
 
-  submit() {
-
+  async submit() {
+    this.submitRegistation();
   }
+
 }
