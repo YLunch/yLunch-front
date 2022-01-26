@@ -11,20 +11,6 @@ export class RegistrationService {
   constructor(private httpClient:HttpClient) { }
 
   async getRegistration(value:User) {
-    const response= await this.httpClient.post<User>(environment.url+"/restaurant-admins",value).toPromise();
-    console.log(response);
-/*
-    let user:User={link: "ab",
-      id: "ab",
-      email: "ab",
-      firstName : "ab",
-      lastName : "ab",
-      phoneNumber : "ab",
-      roles :["test"]
-    };
-
-      return user;
-*/
-
+    return  await this.httpClient.post<User>(environment.url+"/restaurant-admins",value).toPromise();
   }
 }

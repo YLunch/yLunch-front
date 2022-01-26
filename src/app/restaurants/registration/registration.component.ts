@@ -29,8 +29,8 @@ export class RegistrationComponent implements OnInit {
     if (this.registrationForm.valid && (this.registrationForm.value.password == this.registrationForm.value.confirmPassword)) {
       try{
         delete this.registrationForm.value.confirmPassword;
-        const user =await this.registrationForm.value as User;
-        console.log(this.registrationService.getRegistration(user));
+        const user = this.registrationForm.value as User;
+        console.log(await this.registrationService.getRegistration(user));
       }
       catch (error){
         console.log(error);
