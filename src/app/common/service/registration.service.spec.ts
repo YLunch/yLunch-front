@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { RegistrationService } from './registration.service';
-import {Users} from "../models/Users";
+import {User} from "../models/User";
 
 
 describe('RegistrationService', () => {
@@ -20,7 +20,7 @@ describe('RegistrationService', () => {
 
 
   it('#getValue should return real value', () => {
-    const expectedHeroes: Users[]=[{
+    const expectedHeroes: User[]=[{
       link: "ab",
       id: "ab",
       email: "ab",
