@@ -3,17 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { CustomersRoutingModule } from './customers-routing.module';
 import { RegistrationComponent } from './registration/registration.component';
-import { LoginComponent } from './login/login.component';
-
 
 @NgModule({
-  declarations: [
-    RegistrationComponent,
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    CustomersRoutingModule
-  ]
+  declarations: [RegistrationComponent],
+  imports: [CommonModule, CustomersRoutingModule],
 })
-export class CustomersModule { }
+export class CustomersModule {}
