@@ -9,6 +9,11 @@ const routes: Routes = [
         (_) => _.RestaurantsModule
       ),
   },
+  {
+    path: 'customers',
+    loadChildren: () =>
+      import('./customers/customers.module').then((_) => _.CustomersModule),
+  },
 ];
 
 @NgModule({
