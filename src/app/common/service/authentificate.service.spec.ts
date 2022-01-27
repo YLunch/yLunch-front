@@ -1,21 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RegistrationService } from './registration.service';
+import { AuthentificateService } from './authentificate.service';
 import {User} from "../models/User";
 
-
-describe('RegistrationService', () => {
-  let service: RegistrationService;
-  //let user: Users;
+describe('AuthentificateService', () => {
+  let service: AuthentificateService;
+  //let user:Users;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RegistrationService);
+    service = TestBed.inject(AuthentificateService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-
 });
