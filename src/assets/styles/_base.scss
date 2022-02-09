@@ -1,0 +1,16 @@
+:root {
+  --clr-primary: #03989e;
+  --clr-secondary: #ff914d;
+  --clr-font-dark: #1c1b1f;
+
+  --sp-sm: 0.8rem;
+  --sp-m: 1rem;
+  --sp-l: 1.2rem;
+  --sp-xl: 2rem;
+}
+
+$bp-mobile: 425px;
+$bp-tablet: 850px;
+$bp-laptop: 1200px;
+
+$content-width: 1440px;
