@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import {User} from "../models/User";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
+import { User } from '../models/User';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RegistrationService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient:HttpClient) { }
-
-  async getRegistration(value:User) {
-    return  await this.httpClient.post<User>(environment.url+"/restaurant-admins",value).toPromise();
+  async getRegistration(value: User) {
+    return this.httpClient
+      .post<User>(environment.url + '/restaurant-admins', value)
+      .toPromise();
   }
 }
