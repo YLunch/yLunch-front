@@ -10,6 +10,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LoginComponent} from "../common/authentificate/login/login.component";
 
 @NgModule({
   declarations: [RegistrationComponent, FormComponent],
