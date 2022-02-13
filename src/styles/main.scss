@@ -1,0 +1,69 @@
+// css variables
+:root {
+  --container-width: 1200px;
+
+  --spacing-md: 1rem;
+  --spacing-xl: 2.4rem;
+
+  --shadow-100: 0 0 4px rgb(0 0 0 / 0.1);
+
+  --fts-xl: 3rem;
+}
+
+// base - reset
+html, body, app-root {
+  min-height: 100vh;
+  margin: 0;
+
+  // This code pushes the footer to the bottom of the page
+  display: flex;
+  flex-direction: column;
+
+  > footer {
+    margin-top: auto;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.override {
+
+  // layouts - utilities - typographies
+  .container {
+    max-width: var(--container-width);
+    padding: var(--spacing-md);
+    margin: auto;
+  }
+
+  // components
+  .header {
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-100);
+
+    &__logo {
+      display: inline-block;
+      width: 72px;
+    }
+  }
+
+  .footer {
+    box-shadow: var(--shadow-100);
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    &__btn {
+      margin-left: auto;
+    }
+  }
+}
