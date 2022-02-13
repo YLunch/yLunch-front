@@ -1,14 +1,15 @@
-<header class="header-border">
-  <div class="container d-flex">
-  <img src="../assets/img/YLunch-logo.png" />
-    <button mat-flat-button color="primary" >Retour au site marchand</button>
+<header class="header">
+  <div class="container header__wrapper">
+    <a href="/" class="header__logo" aria-hidden="true">
+      <img src="../assets/img/YLunch-logo.png" alt="Ylunch logo"/>
+    </a>
   </div>
 </header>
 <router-outlet></router-outlet>
-<footer class="footer-border">
-  <div class="container d-flex p-5">
-<a>Mentions Légales</a>
-    <a>Plan de site</a>
-    <a>©YLUNCH 2021-2022</a>
+<footer class="footer">
+  <div class="container footer__wrapper">
+    <a class="footer__link">Mentions Légales</a>
+    <a class="footer__link">Plan de site</a>
+    <a class="footer__link">©YLUNCH 2021-2022</a>
   </div>
 </footer>
