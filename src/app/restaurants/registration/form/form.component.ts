@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../../common/models/User';
 import {RegistrationService} from '../../../common/service/registration.service';
+import {MustMatch} from "../../../helpers/must-match.validator";
 
 @Component({
   selector: 'app-form',
@@ -32,27 +33,12 @@ export class FormComponent implements OnInit {
         confirmPassword: ['', Validators.compose([Validators.required])],
       },
       {
-        validators: this.MustMatch('password', 'confirmPassword'),
+        validators: MustMatch('password', 'confirmPassword'),
       }
     );
   }
 
   ngOnInit(): void {
-  }
-
-  MustMatch(controlName: string, matchingControlName: string) {
-    return (formGroup: FormGroup) => {
-      const control = formGroup.controls[controlName];
-      const matchingControl = formGroup.controls[matchingControlName];
-      if (matchingControl.errors && !matchingControl.errors['MustMatch']) {
-        return;
-      }
-      if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({MustMatch: true});
-      } else {
-        matchingControl.setErrors(null);
-      }
-    };
   }
 
   async submit() {
