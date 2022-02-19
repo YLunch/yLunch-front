@@ -16,7 +16,7 @@ const routes: Routes = [
       import('./customers/customers.module').then((_) => _.CustomersModule),
   },
   {
-    path: 'common/authenticate/login', component: LoginComponent,
+    path: 'login', component: LoginComponent,
   },
 ];
 
