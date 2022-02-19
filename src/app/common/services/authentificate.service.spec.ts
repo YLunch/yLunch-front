@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { AuthentificateService } from './authentificate.service';
+import {AuthentificateService} from './authentificate.service';
 import {User} from "../models/User";
 
 describe('AuthentificateService', () => {

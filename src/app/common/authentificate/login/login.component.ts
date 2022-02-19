@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../../models/User";
-import {AuthentificateService} from "../../service/authentificate.service";
+import {AuthentificateService} from "../../services/authentificate.service";
 
 @Component({
   selector: 'app-login',
@@ -10,29 +10,11 @@ import {AuthentificateService} from "../../service/authentificate.service";
 })
 export class LoginComponent implements OnInit {
 
-  public authentificateForm;
-
-  constructor(private authentificateService: AuthentificateService) {
-    this.authentificateForm = new FormBuilder().group({
-      email: ["", Validators.compose([Validators.required])],
-      password: ["", Validators.compose([Validators.required])],
-
-    })
+  constructor() {
   }
+
 
   ngOnInit(): void {
-  }
-
-  async submit() {
-    if (this.authentificateForm.valid) {
-      try {
-        const user = await this.authentificateForm.value as User;
-        console.log(user);
-        this.authentificateService.getAuthentificate(user);
-      } catch (error) {
-        console.log(error);
-      }
-    }
   }
 
 }

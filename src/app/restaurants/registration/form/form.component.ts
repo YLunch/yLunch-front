@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../../common/models/User';
-import {RegistrationService} from '../../../common/service/registration.service';
+import {RegistrationService} from '../../../common/services/registration.service';
 import {MustMatch} from "../../../helpers/must-match.validator";
 
 @Component({

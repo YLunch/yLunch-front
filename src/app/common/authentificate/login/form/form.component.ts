@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RegistrationService} from "../../../service/registration.service";
-import {AuthentificateService} from "../../../service/authentificate.service";
+import {AuthentificateService} from "../../../services/authentificate.service";
+import {User} from "../../../models/User";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-form',
@@ -9,16 +10,29 @@ import {AuthentificateService} from "../../../service/authentificate.service";
 })
 export class FormComponent implements OnInit {
 
-  @Input() authentificateForm: any;
-  @Input() submitAuthentificate: any;
+  public authentificateForm;
+  hide = true;
 
-  constructor(private authentificateService:AuthentificateService) { }
+  constructor(private authentificateService: AuthentificateService) {
+    this.authentificateForm = new FormBuilder().group({
+      email: ["", Validators.compose([Validators.required])],
+      password: ["", Validators.compose([Validators.required])],
+    })
+  }
 
   ngOnInit(): void {
   }
 
   async submit() {
-    this.submitAuthentificate();
+    if (this.authentificateForm.valid) {
+      try {
+        const user = await this.authentificateForm.value as User;
+        console.log(user);
+        this.authentificateService.getAuthentificate(user);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 
 }
