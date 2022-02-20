@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AuthentificateService} from "../../../services/authentificate.service";
-import {User} from "../../../models/User";
+import {AuthenticateService} from "src/app/common/services/authenticate.service";
+import {User} from "src/app/common/models/User";
 import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
@@ -10,11 +10,11 @@ import {FormBuilder, Validators} from "@angular/forms";
 })
 export class FormComponent implements OnInit {
 
-  public authentificateForm;
+  public authenticateForm;
   hide = true;
 
-  constructor(private authentificateService: AuthentificateService) {
-    this.authentificateForm = new FormBuilder().group({
+  constructor(private authenticateService: AuthenticateService) {
+    this.authenticateForm = new FormBuilder().group({
       email: ["", Validators.compose([Validators.required])],
       password: ["", Validators.compose([Validators.required])],
     })
@@ -24,11 +24,11 @@ export class FormComponent implements OnInit {
   }
 
   async submit() {
-    if (this.authentificateForm.valid) {
+    if (this.authenticateForm.valid) {
       try {
-        const user = await this.authentificateForm.value as User;
+        const user = await this.authenticateForm.value as User;
         console.log(user);
-        this.authentificateService.getAuthentificate(user);
+        this.authenticateService.getAuthenticate(user);
       } catch (error) {
         console.log(error);
       }
