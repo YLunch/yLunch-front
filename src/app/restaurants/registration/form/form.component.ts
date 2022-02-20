@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../../common/models/User';
-import { RegistrationService } from '../../../common/service/registration.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {User} from '../../../common/models/User';
+import {RegistrationService} from '../../../common/services/registration.service';
+import {MustMatch} from "../../../helpers/must-match.validator";
 
 @Component({
   selector: 'app-form',
@@ -9,7 +10,8 @@ import { RegistrationService } from '../../../common/service/registration.servic
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  @Input() registrationForm: any;
+  registrationForm: FormGroup;
+  hide = true;
 
   constructor(private registrationService: RegistrationService) {
     this.registrationForm = new FormBuilder().group(
@@ -31,26 +33,12 @@ export class FormComponent implements OnInit {
         confirmPassword: ['', Validators.compose([Validators.required])],
       },
       {
-        validators: this.MustMatch('password', 'confirmPassword'),
+        validators: MustMatch('password', 'confirmPassword'),
       }
     );
   }
 
-  ngOnInit(): void {}
-
-  MustMatch(controlName: string, matchingControlName: string) {
-    return (formGroup: FormGroup) => {
-      const control = formGroup.controls[controlName];
-      const matchingControl = formGroup.controls[matchingControlName];
-      if (matchingControl.errors && !matchingControl.errors['MustMatch']) {
-        return;
-      }
-      if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({ MustMatch: true });
-      } else {
-        matchingControl.setErrors(null);
-      }
-    };
+  ngOnInit(): void {
   }
 
   async submit() {

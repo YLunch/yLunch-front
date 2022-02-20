@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./common/authentificate/login/login.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LoginComponent} from "./common/components/login/login.component";
 
 const routes: Routes = [
   {
@@ -16,12 +16,13 @@ const routes: Routes = [
       import('./customers/customers.module').then((_) => _.CustomersModule),
   },
   {
-    path:'common/authenticate/login', component:LoginComponent,
-},
+    path: 'login', component: LoginComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
