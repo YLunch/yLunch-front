@@ -14,4 +14,8 @@ export class AuthentificateService {
   async getAuthentificate(value:User) {
     return  await this.httpClient.post<Token>(environment.url+"/authentication/login",value).toPromise();
   }
+
+  async checkToken() {
+    return  await this.httpClient.get(environment.url+"/trials/authenticated").toPromise();
+  }
 }

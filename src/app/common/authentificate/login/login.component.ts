@@ -3,6 +3,7 @@ import {RegistrationService} from "../../service/registration.service";
 import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../../models/User";
 import {AuthentificateService} from "../../service/authentificate.service";
+import {Token} from '../../models/Token';
 
 @Component({
   selector: 'app-login',
